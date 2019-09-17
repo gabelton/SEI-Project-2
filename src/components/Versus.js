@@ -14,7 +14,7 @@ class Versus extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://api.football-data.org/v2/competitions/2021/standings', {
+    axios.get('https://api.football-data.org/v2/competitions/2021/standings', {
       headers: { 'X-Auth-Token': '2e2cceea83ec48c2af5b1eea48220f6a' }
     })
       .then(data => {
@@ -47,14 +47,11 @@ class Versus extends React.Component {
       <main>
         <section className="section">
           <div className="container">
-
-            {/*  <div className="columns">
-              <div className="column is-full">
-                {/* Here be search bar (argh )
-                <SearchBar/>
-              </div>
-            </div> */}
-
+            <h1 className="is-title">Select 2 teams from the Premier League 2018/19 season to compare their stats</h1>
+          </div>
+        </section>
+        <section className="section">
+          <div className="container">
             <div className="columns is-multiline">
               <div className="column is-half">
                 <Select
@@ -62,24 +59,15 @@ class Versus extends React.Component {
                   options={this.state.options}
                   onChange={data => this.handleChange(data.value, 'teamA')}
                 />
-
-                {/* Here be search bar (argh )*/}
-
               </div>
-
               <div className="column is-half">
-                {/* Here be search bar (argh )*/}
-                {/*<h1>  {teams[1].label} </h1> */}
                 <Select
                   name="teamB"
                   options={this.state.options}
                   onChange={data => this.handleChange(data.value, 'teamB')}
                 />
               </div>
-
-
             </div>
-
           </div>
         </section>
         <section className="section">
